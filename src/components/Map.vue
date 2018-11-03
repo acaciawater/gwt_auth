@@ -1,28 +1,33 @@
 <template>
-  <div class="map">
+  <b-container class="map">
     <h3>{{name}}</h3>
-    <ul>
-      <Layer v-for="item in layers" v-bind:layer="item" :title="item.url" :key="item.id">
-      </Layer>
-    </ul>
-  </div>
+    <div class="card" style="width: 18rem;">
+      <div class="card-header bg-primary text-white">
+        Layers <v-icon class="float-right" name="layer-group"/>
+      </div>
+      <b-list-group>
+        <draggable v-model="layers">
+          <Layer v-for="item in layers" v-bind:layer="item" :key="item.id" :visible="item.visible">
+          </Layer>
+        </draggable>
+      </b-list-group>
+    </div>
+  </b-container>
 </template>
 
 <script>
 import Layer from "./Layer.vue";
+import draggable from 'vuedraggable';
+import jsonData from "../assets/layers.json";
 export default {
   name: "Map",
-  components: { Layer },
+  components: { Layer, draggable },
   props: {
     name: String
   },
   data() {
     return {
-      layers: [
-        { id: 0, name: "Stress", url: "https://example.com" },
-        { id: 1, name: "Recharge", url: "https://example.com" },
-        { id: 2, name: "Landuse", url: "https://example.com" }
-      ]
+      layers: jsonData
     };
   }
 };
@@ -31,10 +36,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
+  margin: 1em 0 1em;
 }
 </style>

@@ -1,0 +1,86 @@
+[
+    {
+        "id": 12,
+        "name": "Countries",
+        "url": "http://gis.acaciadata.com",
+        "visible": true
+    },
+    {
+        "id": 13,
+        "name": "Natural Earth",
+        "url": "http://gis.acaciadata.com",
+        "visible": true
+    },
+    {
+        "id": 0,
+        "name": "Recharge",
+        "url": "http://gis.acaciadata.com",
+        "visible": false
+    },
+    {
+        "id": 1,
+        "name": "Aquifer stress",
+        "url": "http://gis.acaciadata.com",
+        "visible": false
+    },
+    {
+        "id": 2,
+        "name": "Aridity index",
+        "url": "http://gis.acaciadata.com",
+        "visible": false
+    },
+    {
+        "id": 3,
+        "name": "Landuse",
+        "url": "http://gis.acaciadata.com",
+        "visible": false
+    },
+    {
+        "id": 4,
+        "name": "Salinity",
+        "url": "http://gis.acaciadata.com",
+        "visible": false
+    },
+    {
+        "id": 5,
+        "name": "Fluoride",
+        "url": "http://gis.acaciadata.com",
+        "visible": false
+    },
+    {
+        "id": 6,
+        "name": "Arsenic",
+        "url": "http://gis.acaciadata.com",
+        "visible": false
+    },
+    {
+        "id": 7,
+        "name": "Vulnerability",
+        "url": "http://gis.acaciadata.com",
+        "visible": false
+    },
+    {
+        "id": 8,
+        "name": "Population",
+        "url": "http://gis.acaciadata.com",
+        "visible": false
+    },
+    {
+        "id": 9,
+        "name": "Abstractions",
+        "url": "http://gis.acaciadata.com",
+        "visible": false
+    },
+    {
+        "id": 10,
+        "name": "Precipitation",
+        "url": "http://gis.acaciadata.com",
+        "visible": false
+    },
+    {
+        "id": 11,
+        "name": "Evapotranspiration",
+        "url": "http://gis.acaciadata.com",
+        "visible": false
+    }
+ ]
