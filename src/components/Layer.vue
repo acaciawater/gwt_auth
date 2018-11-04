@@ -17,7 +17,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 a {
-  color: #42b983;
+  color: #4297b9;
 }
 
 .left {
