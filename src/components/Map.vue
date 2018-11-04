@@ -42,8 +42,8 @@ export default {
   },
   data() {
     return {
-      zoom: 10,
-      center: L.latLng(52.5, 4.5),
+      zoom: 3,
+      center: L.latLng(20, 20),
       layers: jsonData
     };
   }
