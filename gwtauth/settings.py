@@ -18,15 +18,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '7dg0w2ke3v$#4n)xu6n^5+bo6!qbvg&d!5kj18e1-92!b)vlh6'
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
-CORS_ORIGIN_ALLOW_ALL=True
 
 # Application definition
 
@@ -92,31 +87,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'gwtauth.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-#         'NAME': 'gwt',
-#     },
-# }
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'gwt'
-    },
-}
-
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
@@ -157,8 +127,3 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
 ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window; you may, of course, use a different value.
-
-DEFAULT_FROM_EMAIL = 'noreply@acaciadata.com'
-EMAIL_HOST_USER='webmaster@acaciadata.com'
-EMAIL_HOST_PASSWORD='water123'
-EMAIL_USE_TLS = True
