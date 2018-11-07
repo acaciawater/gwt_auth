@@ -113,9 +113,7 @@ WSGI_APPLICATION = 'gwtauth.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'gwt',
-        'PASSWORD': 'Heinis14',
-        'USER': 'theo'
+        'NAME': 'gwt'
     },
 }
 
