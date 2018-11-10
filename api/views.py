@@ -12,5 +12,8 @@ class SurveyViewSet(ModelViewSet):
     permission_classes = (IsAuthenticated,)
     
     def get_queryset(self):
+        """ 
+        Returns the surveys of authenticated user 
+        """
         user = self.request.user
         return user.surveydata_set.all()

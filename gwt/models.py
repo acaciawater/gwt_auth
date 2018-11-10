@@ -6,7 +6,10 @@ from django.utils.translation import gettext_lazy as _
 
 class SurveyData(models.Model):
     user = models.ForeignKey(User, models.CASCADE, verbose_name=_('user')) 
-    project = models.TextField(_('project name'),max_length=100,unique=True)
+    project = models.CharField(_('project name'),max_length=100,unique=True)
     location = models.GeometryField(_('location'),srid=4326)
-    survey = fields.JSONField(_('survey'))
+    survey = fields.JSONField(_('survey'),default=dict,blank=True)
+
+    def __str__(self):
+        return self.project
         

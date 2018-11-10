@@ -14,6 +14,6 @@ schema_view = get_schema_view(title='GWT Authorization API')
 urlpatterns = [
     path('schema/', schema_view),
     path('docs/', include_docs_urls(title='GWT Authorization API')),
-    path('token/', obtain_jwt_token),
+    path('login/', obtain_jwt_token),
     path('', include(router.urls)),
 ]
