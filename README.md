@@ -16,6 +16,13 @@ Authentication server and database for groundwater Rapid Assessment Tool
 `gwt# create extension postgis_topology;`\
 `^D`
 
+### secret keys
+download or create gwtauth/secrets.py with the following keys:\
+`SECRET_KEY`\
+`DATABASES`\
+`CORS_ORIGIN_ALLOW_ALL=True` or\
+`CORS_ORIGIN_WHITELIST`
+
 ### initialize database
 `python manage.py migrate`\
 `python manage.py createsuperuser`\
