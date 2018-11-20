@@ -5,7 +5,7 @@ Authentication server and database for groundwater Rapid Assessment Tool
 ### install system requirements for geodjango
 `sudo apt-get install binutils libproj-dev gdal-bin postgis`
 
-### install source code
+### install source code requirements
 `pip install -r requirements.txt`
 
 ### create database
