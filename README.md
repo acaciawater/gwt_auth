@@ -20,7 +20,7 @@ Authentication server and database for groundwater Rapid Assessment Tool
 `python manage.py migrate`\
 `python manage.py createsuperuser`\
 `python manage.py loaddata wms.json`\
-`python manage.py loaddata gwt.json`\
+`python manage.py loaddata gwt.json`
 
 
 
