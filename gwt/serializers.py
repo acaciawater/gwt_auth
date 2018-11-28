@@ -17,4 +17,4 @@ class IndicatorSerializer(serializers.ModelSerializer):
     limits = ClassLimitSerializer(many=True)
     class Meta:
         model = Indicator
-        fields = ('name','layer','url','limits')
+        fields = ('name','layer','url','limits','info')

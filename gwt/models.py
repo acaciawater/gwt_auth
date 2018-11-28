@@ -25,6 +25,7 @@ class Indicator(models.Model):
     name = models.CharField(_('name'), max_length=100, unique=True)
     url = models.URLField(_('url'), max_length=255, default=settings.DEFAULT_WMS)
     layer = models.CharField(_('layer'), max_length=100)
+    info = models.URLField(_('info'),help_text=_('URL for background information'))
     
     def __str__(self):
         return self.name
@@ -47,30 +48,4 @@ class ClassLimit(models.Model):
     class Meta:
         verbose_name = _('Class limit')
         ordering = ('limit',)
-
-# class Question(models.Model):
-#     question = models.CharField(_('question'),primary_key = True, max_length=100)
-#     description = models.TextField(_('description'))
-# 
-#     def __str__(self):
-#         return self.question
-# 
-#     class Meta:
-#         verbose_name = _('question')
-#         
-#     
-# class Rule(models.Model):
-#     question = models.ForeignKey(Question, models.CASCADE,verbose_name=_('question'))
-#     answer = models.CharField(_('answer'),max_length=100)
-#     indicators = models.ManyToManyField(Indicator,verbose_name=_('indicators'))
-#     
-#     def indicator_list(self):
-#         return ','.join(list(map(str,self.indicators.all())))
-# 
-#     def __str__(self):
-#         return str(self.question)
-# 
-#     class Meta:
-#         verbose_name = _('rule')
-#         
     
