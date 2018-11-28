@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.admin.decorators import register
-from gwt.models import SurveyData, Indicator, ClassLimit
+from gwt.models import SurveyData, Indicator, ClassLimit#, Question, Rule
 
 # Register your models here.
 @register(SurveyData)
@@ -19,4 +19,13 @@ class IndicatorAdmin(admin.ModelAdmin):
     model = Indicator
     list_display = ('name','layer','class_limits','url')
     inlines = [ClassLimitInline]
-    
+
+# @register(Question)
+# class QuestionAdmin(admin.ModelAdmin):
+#     model = Question
+#     list_display=('question','description')
+#     
+# @register(Rule)
+# class RuleAdmin(admin.ModelAdmin):
+#     model = Rule
+#     list_display = ('question','answer','indicator_list')

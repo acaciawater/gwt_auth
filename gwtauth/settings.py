@@ -113,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 JWT_AUTH = {
-    'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=3600),
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=24*3600), # 24 hours
     'JWT_ALLOW_REFRESH': True
 }
 
@@ -136,6 +136,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
+
+INFO_URL = '/info/'
+INFO_ROOT = os.path.join(BASE_DIR,'info')
 
 # default WMS for indicator layers
 DEFAULT_WMS = r'http://gis.acaciadata.com/?map=/project/gwtool/GWtool.qgs'
