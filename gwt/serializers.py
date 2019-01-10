@@ -20,6 +20,7 @@ class IndicatorSerializer(serializers.ModelSerializer):
         fields = ('name','layer','url','limits','info')
 
 class SuggestionSerializer(serializers.ModelSerializer):
+    user = serializers.PrimaryKeyRelatedField(read_only=True, default=serializers.CurrentUserDefault())
     class Meta:
         model = Suggestion
         fields = ('user', 'created', 'message')
