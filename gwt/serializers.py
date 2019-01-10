@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import SurveyData, Indicator, ClassLimit
+from .models import SurveyData, Indicator, ClassLimit, Suggestion
 
 class SurveySerializer(serializers.ModelSerializer):
     user = serializers.PrimaryKeyRelatedField(read_only=True, default=serializers.CurrentUserDefault())
@@ -18,3 +18,9 @@ class IndicatorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Indicator
         fields = ('name','layer','url','limits','info')
+
+class SuggestionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Suggestion
+        fields = ('user', 'created', 'message')
+            

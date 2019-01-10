@@ -4,13 +4,14 @@ from rest_framework.documentation import include_docs_urls
 from rest_framework.routers import DefaultRouter
 from rest_framework.schemas import get_schema_view
 
-from .views import SurveyViewSet, IndicatorViewSet, MapViewSet, MapLayerViewSet
+from .views import SurveyViewSet, IndicatorViewSet, MapViewSet, MapLayerViewSet, SuggestionViewSet
 
 router = DefaultRouter()
 router.register('survey', SurveyViewSet)
 router.register('indicator', IndicatorViewSet)
 router.register('map', MapViewSet)
 router.register('layer', MapLayerViewSet)
+router.register('feedback', SuggestionViewSet)
 
 schema_view = get_schema_view(title='GWT Authorization API')
 

@@ -4,6 +4,9 @@ from django.contrib.auth.models import User
 from django.contrib.postgres import fields
 from django.utils.translation import gettext_lazy as _
 from django.conf import settings
+from django.dispatch.dispatcher import receiver
+from django.db.models.signals import post_save
+from django.core.mail import send_mail
 
 class SurveyData(geo.Model):
     user = models.ForeignKey(User, models.CASCADE, verbose_name=_('user')) 
@@ -49,3 +52,20 @@ class ClassLimit(models.Model):
         verbose_name = _('Class limit')
         ordering = ('limit',)
     
+class Suggestion(models.Model):
+    """Stores User submitted suggestions."""
+    user = models.ForeignKey(User, models.PROTECT)
+    created = models.DateTimeField(auto_now_add=True)
+    message = models.TextField()
+
+@receiver(post_save, sender=Suggestion)
+def create_suggestion(sender, instance, created, **kwargs):
+    """Upon Suggestion creation, send an email."""
+    if created:
+        send_mail(
+            'Feedback by {}'.format(instance.user.username),
+            instance.message,
+            settings.EMAIL_HOST_USER,
+            ['theo.kleinendorst@acaciawater.com'],
+            fail_silently=False,
+        )

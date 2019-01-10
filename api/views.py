@@ -2,8 +2,9 @@ from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
 from rest_framework.permissions import IsAuthenticated,\
     IsAuthenticatedOrReadOnly
 
-from gwt.models import SurveyData, Indicator
-from gwt.serializers import SurveySerializer, IndicatorSerializer
+from gwt.models import SurveyData, Indicator, Suggestion
+from gwt.serializers import SurveySerializer, IndicatorSerializer,\
+    SuggestionSerializer
 
 from wms.models import Map, MapLayer
 from wms.serializers import MapLayerSerializer, MapSerializer
@@ -24,6 +25,14 @@ class SurveyViewSet(ModelViewSet):
         """
         user = self.request.user
         return user.surveydata_set.all()
+
+class SuggestionViewSet(ModelViewSet):
+    """ 
+    This view a describes a list of users' suggestions
+    """    
+    serializer_class = SuggestionSerializer
+    queryset = Suggestion.objects.all()
+    filter_fields = ('user',)
     
 class IndicatorViewSet(ReadOnlyModelViewSet):
     """ 
@@ -49,6 +58,5 @@ class MapLayerViewSet(ReadOnlyModelViewSet):
     """    
     serializer_class = MapLayerSerializer
     queryset = MapLayer.objects.all()
-
     
         
