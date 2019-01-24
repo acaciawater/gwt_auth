@@ -22,7 +22,7 @@ class SurveyData(geo.Model):
     
     class Meta:
         verbose_name = _('Survey')
-        unique_together=('project','user')
+#         unique_together=('project','user')
             
 class Indicator(models.Model):
     name = models.CharField(_('name'), max_length=100, unique=True)
