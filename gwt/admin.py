@@ -6,7 +6,7 @@ from gwt.models import SurveyData, Indicator, ClassLimit#, Question, Rule
 @register(SurveyData)
 class SurveryDataAdmin(admin.ModelAdmin):
     model = SurveyData
-    list_display = ('project','user','location')
+    list_display = ('project','user','location','created','modified')
     list_search = ('user',)
 
 class ClassLimitInline(admin.TabularInline):
