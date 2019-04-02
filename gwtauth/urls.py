@@ -17,11 +17,18 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from allauth.account.views import confirm_email
+from django.urls.conf import re_path
+from django.views.generic.base import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     path('api/v1/', include('api.urls'),name='api'),
-    # path('accounts/', include('registration.backends.hmac.urls')),
+    path('accounts/', include('allauth.urls')),
+    path('accounts/profile/', RedirectView.as_view(url='/', permanent=True), name='profile-redirect'),
+    path('auth/', include('rest_auth.urls')),
+    re_path(r'auth/registration/account-confirm-email/(?P<key>[-:\w]+)/$', confirm_email, name='account_confirm_email'),
+    path('auth/registration/', include('rest_auth.registration.urls')),
 ]
 urlpatterns += static(settings.INFO_URL, document_root=settings.INFO_ROOT)

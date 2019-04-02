@@ -24,6 +24,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['localhost','.acaciadata.com']
 
+SITE_ID=1
 # Application definition
 
 INSTALLED_APPS = [
@@ -34,10 +35,17 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.gis',
+    'django.contrib.sites',
     'rest_framework',
     'rest_framework_gis',
     'rest_framework_filters',
     'rest_framework_jwt',
+    'rest_framework.authtoken',
+    'rest_auth',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'rest_auth.registration',
     'django_filters',
     'corsheaders',
     'api',
@@ -117,6 +125,14 @@ JWT_AUTH = {
     'JWT_ALLOW_REFRESH': True
 }
 
+# tell rest_auth to use JWT
+REST_USE_JWT = True
+
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_ACTIVATION_DAYS = 7
+ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = 'https://gris.acaciadata.com'
+ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = 'https://gris.acaciadata.com/login'
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
@@ -142,7 +158,5 @@ INFO_ROOT = os.path.join(BASE_DIR,'info')
 
 # default WMS for indicator layers
 DEFAULT_WMS = r'http://gis.acaciadata.com/?map=/project/gwtool/GWtool.qgs'
-
-ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window; you may, of course, use a different value.
 
 from .secrets import *
